@@ -1,0 +1,80 @@
+{
+  "os": "Linux-5.4.0-42-generic-x86_64-with-glibc2.31",
+  "python": "3.9.19",
+  "startedAt": "2025-04-07T03:32:15.751602Z",
+  "program": "/home/zhengyulong/models/lyra/toycode.ipynb",
+  "email": "miaozhu1020@sina.com",
+  "root": "/home/zhengyulong/models/lyra",
+  "host": "bdp-gpu04",
+  "username": "zhengyulong",
+  "executable": "/home/zhengyulong/miniconda3/bin/python",
+  "codePathLocal": "toycode.ipynb",
+  "cpu_count": 64,
+  "cpu_count_logical": 128,
+  "gpu": "NVIDIA A800 80GB PCIe",
+  "gpu_count": 8,
+  "disk": {
+    "/": {
+      "total": "200512491520",
+      "used": "109223890944"
+    }
+  },
+  "memory": {
+    "total": "2164175007744"
+  },
+  "cpu": {
+    "count": 64,
+    "countLogical": 128
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA A800 80GB PCIe",
+      "memoryTotal": "85899345920",
+      "cudaCores": 6912,
+      "architecture": "Ampere"
+    },
+    {
+      "name": "NVIDIA A800 80GB PCIe",
+      "memoryTotal": "85899345920",
+      "cudaCores": 6912,
+      "architecture": "Ampere"
+    },
+    {
+      "name": "NVIDIA A800 80GB PCIe",
+      "memoryTotal": "85899345920",
+      "cudaCores": 6912,
+      "architecture": "Ampere"
+    },
+    {
+      "name": "NVIDIA A800 80GB PCIe",
+      "memoryTotal": "85899345920",
+      "cudaCores": 6912,
+      "architecture": "Ampere"
+    },
+    {
+      "name": "NVIDIA A800 80GB PCIe",
+      "memoryTotal": "85899345920",
+      "cudaCores": 6912,
+      "architecture": "Ampere"
+    },
+    {
+      "name": "NVIDIA A800 80GB PCIe",
+      "memoryTotal": "85899345920",
+      "cudaCores": 6912,
+      "architecture": "Ampere"
+    },
+    {
+      "name": "NVIDIA A800 80GB PCIe",
+      "memoryTotal": "85899345920",
+      "cudaCores": 6912,
+      "architecture": "Ampere"
+    },
+    {
+      "name": "NVIDIA A800 80GB PCIe",
+      "memoryTotal": "85899345920",
+      "cudaCores": 6912,
+      "architecture": "Ampere"
+    }
+  ],
+  "cudaVersion": "12.0"
+}

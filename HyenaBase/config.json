@@ -1,0 +1,39 @@
+{
+  "_name_or_path": "hyenadna-large-1m-seqlen-hf",
+  "activation_freq": 10,
+  "architectures": [
+    "HyenaDNAForCausalLM"
+  ],
+  "auto_map": {
+    "AutoConfig": "configuration_hyena.HyenaConfig",
+    "AutoModel": "modeling_hyena.HyenaDNAModel",
+    "AutoModelForCausalLM": "modeling_hyena.HyenaDNAForCausalLM",
+    "AutoModelForSequenceClassification": "modeling_hyena.HyenaDNAForSequenceClassification"
+  },
+  "d_inner": 1024,
+  "d_model": 256,
+  "emb_dim": 5,
+  "embed_dropout": 0.1,
+  "filter_order": 64,
+  "hyena_dropout": 0.0,
+  "hyena_filter_dropout": 0.0,
+  "hyena_order": 2,
+  "initializer_range": 0.02,
+  "layer_norm_epsilon": 1e-05,
+  "max_seq_len": 1000002,
+  "model_type": "hyenadna",
+  "n_layer": 8,
+  "depths" : 4,
+  "temperature":1.0,
+  "chunk_size":131064,
+  "num_inner_mlps": 2,
+  "pad_token_id": 4,
+  "pad_vocab_size_multiple": 8,
+  "short_filter_order": 3,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float32",
+  "train_freq": true,
+  "transformers_version": "4.35.0.dev0",
+  "use_bias": true,
+  "vocab_size": 12
+}

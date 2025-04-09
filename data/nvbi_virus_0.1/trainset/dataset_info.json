@@ -1,0 +1,46 @@
+{
+  "builder_name": "csv",
+  "citation": "",
+  "config_name": "default",
+  "dataset_name": "csv",
+  "dataset_size": 1225181398,
+  "description": "",
+  "download_checksums": {
+    "/home/zhengyulong/models/HyenaModel/data/trainset_0.1.csv": {
+      "num_bytes": 1218055174,
+      "checksum": null
+    }
+  },
+  "download_size": 1218055174,
+  "features": {
+    "input_ids": {
+      "feature": {
+        "dtype": "int32",
+        "_type": "Value"
+      },
+      "_type": "Sequence"
+    }
+  },
+  "homepage": "",
+  "license": "",
+  "size_in_bytes": 2443236572,
+  "splits": {
+    "train": {
+      "name": "train",
+      "num_bytes": 1225181398,
+      "num_examples": 593074,
+      "shard_lengths": [
+        250000,
+        250000,
+        93074
+      ],
+      "dataset_name": "csv"
+    }
+  },
+  "version": {
+    "version_str": "0.0.0",
+    "major": 0,
+    "minor": 0,
+    "patch": 0
+  }
+}

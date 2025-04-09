@@ -1,0 +1,8 @@
+{"time":"2025-04-07T11:57:06.204185853+08:00","level":"INFO","msg":"using version","core version":"0.18.7"}
+{"time":"2025-04-07T11:57:06.204204048+08:00","level":"INFO","msg":"created symlink","path":"/home/zhengyulong/models/lyra/wandb/run-20250407_115706-enrqbelf/logs/debug-core.log"}
+{"time":"2025-04-07T11:57:06.747480247+08:00","level":"INFO","msg":"created new stream","id":"enrqbelf"}
+{"time":"2025-04-07T11:57:06.747628192+08:00","level":"INFO","msg":"stream: started","id":"enrqbelf"}
+{"time":"2025-04-07T11:57:06.747710796+08:00","level":"INFO","msg":"writer: Do: started","stream_id":"enrqbelf"}
+{"time":"2025-04-07T11:57:06.747737239+08:00","level":"INFO","msg":"handler: started","stream_id":"enrqbelf"}
+{"time":"2025-04-07T11:57:06.748753319+08:00","level":"INFO","msg":"sender: started","stream_id":"enrqbelf"}
+{"time":"2025-04-07T11:57:07.414054802+08:00","level":"INFO","msg":"Starting system monitor"}

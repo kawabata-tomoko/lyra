@@ -1,0 +1,147 @@
+Total trainable parameters: 1539340
+Total parameters: 1539340
+/home/zhengyulong/miniconda3/lib/python3.9/site-packages/transformers/training_args.py:1525: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+Total trainable parameters: 1539340
+Total parameters: 1539340
+/home/zhengyulong/miniconda3/lib/python3.9/site-packages/transformers/training_args.py:1525: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+torch.Size([128, 2048, 256])
+torch.Size([128, 2048, 256])
+torch.Size([128, 2048, 256])
+torch.Size([128, 2048, 256])
+torch.Size([128, 2048, 256])
+torch.Size([128, 2048, 256])torch.Size([128, 2048, 256])
+
+torch.Size([128, 2048, 256])torch.Size([128, 2048, 256])
+
+torch.Size([128, 2048, 256])torch.Size([128, 2048, 256])
+torch.Size([128, 2048, 256])
+
+torch.Size([128, 2048, 256])
+torch.Size([128, 2048, 256])
+torch.Size([128, 2048, 256])
+torch.Size([128, 2048, 256])
+Total trainable parameters: 1539340
+Total parameters: 1539340
+/home/zhengyulong/miniconda3/lib/python3.9/site-packages/transformers/training_args.py:1525: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+Total trainable parameters: 1539340
+Total parameters: 1539340
+/home/zhengyulong/miniconda3/lib/python3.9/site-packages/transformers/training_args.py:1525: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128])torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+ torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+Total trainable parameters: 1545484
+Total parameters: 1545484
+/home/zhengyulong/miniconda3/lib/python3.9/site-packages/transformers/training_args.py:1525: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+Total trainable parameters: 1538316
+Total parameters: 1538316
+/home/zhengyulong/miniconda3/lib/python3.9/site-packages/transformers/training_args.py:1525: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+Total trainable parameters: 1535244
+Total parameters: 1535244
+/home/zhengyulong/miniconda3/lib/python3.9/site-packages/transformers/training_args.py:1525: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+Detected kernel version 5.4.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])
+torch.Size([128, 2048, 256]) torch.Size([128, 2048, 128]) torch.Size([128, 2048, 128])

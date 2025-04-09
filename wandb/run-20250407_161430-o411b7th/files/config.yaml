@@ -1,0 +1,528 @@
+_name_or_path:
+    value: /pf9550-bdp-A800/zhengyulong/lyradna/NCBIVirus0.1_Pretrain/checkpoint-6620
+_wandb:
+    value:
+        cli_version: 0.18.7
+        m:
+            - "1": train/global_step
+              "6":
+                - 3
+              "7": []
+            - "1": test/model_preparation_time
+              "5": 1
+              "6":
+                - 1
+                - 3
+              "7": []
+            - "1": test/runtime
+              "5": 1
+              "6":
+                - 1
+                - 3
+              "7": []
+            - "1": test/samples_per_second
+              "5": 1
+              "6":
+                - 1
+                - 3
+              "7": []
+            - "1": test/steps_per_second
+              "5": 1
+              "6":
+                - 1
+                - 3
+              "7": []
+        python_version: 3.9.19
+        t:
+            "1":
+                - 1
+                - 5
+                - 11
+                - 49
+                - 51
+                - 53
+                - 55
+                - 71
+                - 98
+            "2":
+                - 1
+                - 5
+                - 11
+                - 49
+                - 51
+                - 53
+                - 55
+                - 71
+                - 98
+            "3":
+                - 7
+                - 13
+                - 19
+                - 23
+                - 55
+                - 66
+            "4": 3.9.19
+            "5": 0.18.7
+            "6": 4.44.2
+            "8":
+                - 5
+            "9":
+                "1": transformers_trainer
+            "12": 0.18.7
+            "13": linux-x86_64
+accelerator_config:
+    value:
+        dispatch_batches: null
+        even_batches: true
+        gradient_accumulation_kwargs: null
+        non_blocking: false
+        split_batches: false
+        use_seedable_sampler: true
+activation_freq:
+    value: 10
+adafactor:
+    value: false
+adam_beta1:
+    value: 0.9
+adam_beta2:
+    value: 0.999
+adam_epsilon:
+    value: 1e-08
+add_cross_attention:
+    value: false
+architectures:
+    value:
+        - HyenaDNAForCausalLM
+auto_find_batch_size:
+    value: false
+auto_map:
+    value:
+        AutoConfig: configuration_hyena.HyenaConfig
+        AutoModel: modeling_hyena.HyenaDNAModel
+        AutoModelForCausalLM: modeling_hyena.HyenaDNAForCausalLM
+        AutoModelForSequenceClassification: modeling_hyena.HyenaDNAForSequenceClassification
+bad_words_ids:
+    value: null
+batch_eval_metrics:
+    value: false
+begin_suppress_tokens:
+    value: null
+bf16:
+    value: false
+bf16_full_eval:
+    value: false
+bos_token_id:
+    value: null
+chunk_size:
+    value: 131064
+chunk_size_feed_forward:
+    value: 0
+classfier_depth:
+    value: 2
+cross_attention_hidden_size:
+    value: null
+d_inner:
+    value: 1024
+d_model:
+    value: 256
+data_seed:
+    value: null
+dataloader_drop_last:
+    value: false
+dataloader_num_workers:
+    value: 0
+dataloader_persistent_workers:
+    value: false
+dataloader_pin_memory:
+    value: true
+dataloader_prefetch_factor:
+    value: null
+ddp_backend:
+    value: null
+ddp_broadcast_buffers:
+    value: null
+ddp_bucket_cap_mb:
+    value: null
+ddp_find_unused_parameters:
+    value: null
+ddp_timeout:
+    value: 1800
+debug:
+    value: []
+decoder_start_token_id:
+    value: null
+deepspeed:
+    value: null
+depths:
+    value: 4
+disable_tqdm:
+    value: false
+dispatch_batches:
+    value: null
+diversity_penalty:
+    value: 0
+do_eval:
+    value: true
+do_predict:
+    value: false
+do_sample:
+    value: false
+do_train:
+    value: false
+early_stopping:
+    value: false
+emb_dim:
+    value: 5
+embed_dropout:
+    value: 0.1
+encoder_no_repeat_ngram_size:
+    value: 0
+eos_token_id:
+    value: null
+eval_accumulation_steps:
+    value: null
+eval_delay:
+    value: 0
+eval_do_concat_batches:
+    value: true
+eval_on_start:
+    value: false
+eval_steps:
+    value: 10
+eval_strategy:
+    value: steps
+eval_use_gather_object:
+    value: false
+evaluation_strategy:
+    value: steps
+exponential_decay_length_penalty:
+    value: null
+filter_order:
+    value: 64
+finetuning_task:
+    value: null
+forced_bos_token_id:
+    value: null
+forced_eos_token_id:
+    value: null
+fp16:
+    value: false
+fp16_backend:
+    value: auto
+fp16_full_eval:
+    value: false
+fp16_opt_level:
+    value: O1
+fsdp:
+    value: []
+fsdp_config:
+    value:
+        min_num_params: 0
+        xla: false
+        xla_fsdp_grad_ckpt: false
+        xla_fsdp_v2: false
+fsdp_min_num_params:
+    value: 0
+fsdp_transformer_layer_cls_to_wrap:
+    value: null
+full_determinism:
+    value: false
+gradient_accumulation_steps:
+    value: 1
+gradient_checkpointing:
+    value: true
+gradient_checkpointing_kwargs:
+    value: null
+greater_is_better:
+    value: null
+group_by_length:
+    value: false
+half_precision_backend:
+    value: auto
+hub_always_push:
+    value: false
+hub_model_id:
+    value: null
+hub_private_repo:
+    value: false
+hub_strategy:
+    value: every_save
+hub_token:
+    value: <HUB_TOKEN>
+hyena_dropout:
+    value: 0
+hyena_filter_dropout:
+    value: 0
+hyena_order:
+    value: 2
+id2label:
+    value:
+        "0": LABEL_0
+        "1": LABEL_1
+        "2": LABEL_2
+        "3": LABEL_3
+        "4": LABEL_4
+        "5": LABEL_5
+        "6": LABEL_6
+        "7": LABEL_7
+        "8": LABEL_8
+        "9": LABEL_9
+        "10": LABEL_10
+        "11": LABEL_11
+ignore_data_skip:
+    value: false
+include_inputs_for_metrics:
+    value: false
+include_num_input_tokens_seen:
+    value: false
+include_tokens_per_second:
+    value: false
+initializer_range:
+    value: 0.02
+is_decoder:
+    value: false
+is_encoder_decoder:
+    value: false
+jit_mode_eval:
+    value: false
+kernel_size:
+    value: 257
+label_names:
+    value: null
+label_smoothing_factor:
+    value: 0
+label2id:
+    value:
+        LABEL_0: 0
+        LABEL_1: 1
+        LABEL_2: 2
+        LABEL_3: 3
+        LABEL_4: 4
+        LABEL_5: 5
+        LABEL_6: 6
+        LABEL_7: 7
+        LABEL_8: 8
+        LABEL_9: 9
+        LABEL_10: 10
+        LABEL_11: 11
+layer_norm_epsilon:
+    value: 1e-05
+learning_rate:
+    value: 5e-05
+length_column_name:
+    value: length
+length_penalty:
+    value: 1
+load_best_model_at_end:
+    value: false
+local_rank:
+    value: 0
+log_level:
+    value: passive
+log_level_replica:
+    value: warning
+log_on_each_node:
+    value: true
+logging_dir:
+    value: /pf9550-bdp-A800/zhengyulong/hyenadna/loadingsample/runs/Apr07_16-13-17_bdp-gpu04
+logging_first_step:
+    value: false
+logging_nan_inf_filter:
+    value: true
+logging_steps:
+    value: 1
+logging_strategy:
+    value: steps
+lr_scheduler_type:
+    value: cosine
+max_grad_norm:
+    value: 5
+max_length:
+    value: 20
+max_seq_len:
+    value: 1000002
+max_steps:
+    value: -1
+metric_for_best_model:
+    value: null
+min_length:
+    value: 0
+model/num_parameters:
+    value: 1534220
+model_type:
+    value: hyenadna
+mp_parameters:
+    value: ""
+n_layer:
+    value: 8
+neftune_noise_alpha:
+    value: 10
+no_cuda:
+    value: false
+no_repeat_ngram_size:
+    value: 0
+num_beam_groups:
+    value: 1
+num_beams:
+    value: 1
+num_heads:
+    value: 8
+num_inner_mlps:
+    value: 2
+num_return_sequences:
+    value: 1
+num_train_epochs:
+    value: 50
+optim:
+    value: adamw_apex_fused
+optim_args:
+    value: null
+optim_target_modules:
+    value: null
+output_attentions:
+    value: false
+output_dir:
+    value: /pf9550-bdp-A800/zhengyulong/hyenadna/loadingsample
+output_hidden_states:
+    value: false
+output_scores:
+    value: false
+overwrite_output_dir:
+    value: false
+pad_token_id:
+    value: 4
+pad_vocab_size_multiple:
+    value: 8
+past_index:
+    value: -1
+per_device_eval_batch_size:
+    value: 64
+per_device_train_batch_size:
+    value: 64
+per_gpu_eval_batch_size:
+    value: null
+per_gpu_train_batch_size:
+    value: null
+prediction_loss_only:
+    value: false
+prefix:
+    value: null
+problem_type:
+    value: null
+push_to_hub:
+    value: false
+push_to_hub_model_id:
+    value: null
+push_to_hub_organization:
+    value: null
+push_to_hub_token:
+    value: <PUSH_TO_HUB_TOKEN>
+ray_scope:
+    value: last
+remove_invalid_values:
+    value: false
+remove_unused_columns:
+    value: true
+repetition_penalty:
+    value: 1
+report_to:
+    value:
+        - wandb
+restore_callback_states_from_checkpoint:
+    value: false
+resume_from_checkpoint:
+    value: null
+return_dict:
+    value: true
+return_dict_in_generate:
+    value: false
+run_name:
+    value: /pf9550-bdp-A800/zhengyulong/hyenadna/loadingsample
+save_on_each_node:
+    value: false
+save_only_model:
+    value: false
+save_safetensors:
+    value: false
+save_steps:
+    value: 10
+save_strategy:
+    value: steps
+save_total_limit:
+    value: 10
+seed:
+    value: 42
+sep_token_id:
+    value: null
+short_filter_order:
+    value: 3
+skip_memory_metrics:
+    value: true
+split_batches:
+    value: null
+stride:
+    value: 1
+suppress_tokens:
+    value: null
+task_specific_params:
+    value: null
+temperature:
+    value: 1
+tf_legacy_loss:
+    value: false
+tf32:
+    value: null
+tie_encoder_decoder:
+    value: false
+tie_word_embeddings:
+    value: false
+tokenizer_class:
+    value: null
+top_k:
+    value: 50
+top_p:
+    value: 1
+torch_compile:
+    value: false
+torch_compile_backend:
+    value: null
+torch_compile_mode:
+    value: null
+torch_dtype:
+    value: float32
+torch_empty_cache_steps:
+    value: null
+torchdynamo:
+    value: null
+torchscript:
+    value: false
+tpu_metrics_debug:
+    value: false
+tpu_num_cores:
+    value: null
+train_freq:
+    value: true
+transformers_version:
+    value: 4.44.2
+typical_p:
+    value: 1
+use_bfloat16:
+    value: false
+use_bias:
+    value: true
+use_cpu:
+    value: false
+use_ipex:
+    value: false
+use_legacy_prediction_loop:
+    value: false
+use_mps_device:
+    value: false
+vocab_size:
+    value: 12
+warmup_ratio:
+    value: 0.1
+warmup_steps:
+    value: 0
+weight_decay:
+    value: 0.1

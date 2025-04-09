@@ -8,7 +8,7 @@ from transformers import (AutoConfig, AutoModelForSequenceClassification,
 import wandb
 from models import LyraDNAForCausalLM,LyraDNAForSequenceClassification
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '1,2,3,4,5,6,7'
+# os.environ['CUDA_VISIBLE_DEVICES'] = '1,2,3,4,5,6,7'
 
 
 # 初始化模型和数据集
@@ -23,7 +23,8 @@ config = AutoConfig.from_pretrained(
 )
 
 model = LyraDNAForSequenceClassification.from_pretrained(
-    "/pf9550-bdp-A800/zhengyulong/lyradna/NCBIVirus0.1_Pretrain/checkpoint-6620",
+    # "/pf9550-bdp-A800/zhengyulong/lyradna/NCBIVirus0.1_Pretrain/checkpoint-6620",
+    "/pf9550-bdp-A800/zhengyulong/lyradna/seqcls_hcov12_1.5e-3e20/checkpoint-1380",
     trust_remote_code=True,
     config=config,
     ignore_mismatched_sizes=True,
@@ -35,7 +36,7 @@ from datasets import load_from_disk
 trainset=load_from_disk(f"{dataset_path}/trainset")
 evalset=load_from_disk( f"{dataset_path}/evalset")
 # testset=load_from_disk( f"{dataset_path}/testset")
-testset=load_from_disk( "/pf9550-bdp-A800/zhengyulong/hyenadna/dataset/refseq/test")
+testset=load_from_disk(  "/pf9550-bdp-A800/zhengyulong/hyenadna/dataset/substrain_hcov_extra_unknown/test")
 
 import numpy as np
 import torch
@@ -97,4 +98,8 @@ trainer=Trainer(
 print(len(testset[0]["input_ids"]))
 # trainer.train()
 ans=trainer.predict(testset.remove_columns("label"))
-torch.save(ans,"12lyra_extra.pth")
+
+s=torch.tensor(ans.predictions[1])
+pooled_logits = s[torch.arange(s.size(0), device=s.device), -1]
+
+torch.save(pooled_logits,"12lyra_extra_fintuned.pth")

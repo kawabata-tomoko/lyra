@@ -16,13 +16,11 @@ class RMSNorm(nn.Module):
         super().__init__()
         self.eps = eps
         self.weight = nn.Parameter(torch.ones(dim))
-
-    def _norm(self, x):
-        return x * torch.rsqrt(x.pow(2).mean(-1, keepdim=True) + self.eps)
-
+    
     def forward(self, x):
-        output = self._norm(x.float()).type_as(x)
-        return output * self.weight
+        # 合并计算，减少中间变量
+        norm_x = torch.rsqrt(x.pow(2).mean(-1, keepdim=True) + self.eps)
+        return x * norm_x * self.weight
 
 class PGC(nn.Module):
     def __init__(self, d_model, expansion_factor=1.0, dropout=0.0):
@@ -191,7 +189,7 @@ class Lyra(nn.Module):
         x = self.encoder(x)  # (B, L, d_input) -> (B, L, d_model)
 
         for pgc_layer in self.pgc_layers:
-            x = pgc_layer(x)
+            x = pgc_layer(x)+x
             
         x = x.transpose(-1, -2)  # (B, L, d_model) -> (B, d_model, L)
         
@@ -220,7 +218,7 @@ class LyraDNAModel(HyenaDNAPreTrainedModel):
         self.embeddings = HyenaEmbeddings(config)
         self.backbone = Lyra(
                 model_dimension=config.d_model,
-                pgc_configs=[(config.d_model, config.n_layer)],  # (hidden_dim, num_layers)
+                pgc_configs=[(256, config.n_layer//4),(128, config.n_layer//4),(64, config.n_layer//4),(32, config.n_layer//4)],  # (hidden_dim, num_layers)
                 num_s4=config.depths,
                 d_input=config.d_model,
                 d_output=config.vocab_size,
@@ -350,16 +348,22 @@ class LyraDNAForSequenceClassification(HyenaDNAPreTrainedModel):
         super().__init__(config, **kwargs)
         self.num_labels = kwargs.get("num_labels", config.num_labels)
         self.lyra = LyraDNAModel(config)
+        # self.score = nn.Sequential(
+        #         nn.Linear(config.d_model, 2*config.d_model),
+        #         nn.LayerNorm(2*config.d_model),
+        #         nn.ReLU(),
+        #         nn.Linear(2*config.d_model, self.num_labels)
+        # )
         self.score = nn.Linear(config.d_model, self.num_labels, bias=False)
 
         # Initialize weights and apply final processing
         self.post_init()
 
     def get_input_embeddings(self):
-        return self.hyena.backbone.embeddings.word_embeddings
+        return self.lyra.embeddings.word_embeddings
 
     def set_input_embeddings(self, value):
-        self.hyena.backbone.embeddings.word_embeddings = value
+        self.lyra.embeddings.word_embeddings = value
 
     def forward(
         self,
@@ -445,5 +449,5 @@ class LyraDNAForSequenceClassification(HyenaDNAPreTrainedModel):
         return SequenceClassifierOutput(
             loss=loss,
             logits=pooled_logits,
-            hidden_states=hidden_states,
+            hidden_states=None#hidden_states,
         )

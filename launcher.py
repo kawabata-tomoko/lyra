@@ -1,4 +1,5 @@
-from models import LyraDNAForCausalLM
+# from models import LyraDNAForCausalLM
+from unet_lyra import UnetLyraDNAForCausalLM
 
 from datasets import Dataset, load_dataset
 
@@ -8,7 +9,7 @@ from transformers import (AutoConfig, AutoTokenizer,
                           Trainer, TrainingArguments)
 import wandb
 import os
-os.environ['CUDA_VISIBLE_DEVICES'] = '1,2,3,4,5,6,7'
+# os.environ['CUDA_VISIBLE_DEVICES'] = '1,2,3,4,5,6,7'
 def p_count(m):
     ttp = 0
     tp = 0
@@ -36,20 +37,27 @@ def pack(
 ):
     def padseq(line):
         inputs = tokenizer(
-            line["sequence"], max_length=max_length, truncation=True, padding=padding
+            line["seq"], max_length=max_length, truncation=True, padding=padding
         )
         return inputs
     return padseq
 
-func = pack(tokenizer, 2048, padding="max_length")
+func = pack(tokenizer, 8192, padding="max_length")
 def initial_dataset(data_files,settype,output_path = "./data",perfix = "nvbi_virus_0.1"):
     dataset_temp = load_dataset("csv", data_files=data_files)
-    dataset_temp = dataset_temp.map(func, batched=True, num_proc=128)["train"].remove_columns(["ID","sequence","Length","genome"])
+    dataset_temp = dataset_temp.map(func, batched=True, num_proc=128)["train"]#.remove_columns(["ID","sequence","Length","genome"])
     dataset_temp.save_to_disk(f"{output_path}/{perfix}/{settype}", num_proc=128)
     return dataset_temp
 
-trainset=initial_dataset("/home/zhengyulong/models/HyenaModel/data/trainset_0.1.csv","trainset")
-evalset=initial_dataset("/home/zhengyulong/models/HyenaModel/data/evalset_0.1.csv","evalset")
+# trainset=initial_dataset("/home/zhengyulong/models/HyenaModel/data/trainset_0.1.csv","trainset")
+# evalset=initial_dataset("/home/zhengyulong/models/HyenaModel/data/evalset_0.1.csv","evalset")
+
+# trainset=initial_dataset("/pf9550-bdp-A800/zhengyulong/datasets/bvbrc/unique_bvbrc_pretrain_8192_train.csv","trainset",perfix="bvbrc")
+# evalset=initial_dataset("/pf9550-bdp-A800/zhengyulong/datasets/bvbrc/unique_bvbrc_pretrain_8192_eval.csv","evalset",perfix="bvbrc")
+dataset_path="./data/bvbrc"
+from datasets import load_from_disk
+trainset=load_from_disk(f"{dataset_path}/trainset")
+evalset=load_from_disk( f"{dataset_path}/evalset")
 
 datacollator = DataCollatorForLanguageModeling(
     tokenizer=tokenizer,
@@ -60,24 +68,24 @@ config = AutoConfig.from_pretrained(
     model_path,
     trust_remote_code=True,
     num_labels=12,
-    classfier_depth=2
+    classfier_depth=2,
 )
-model =  LyraDNAForCausalLM(config)
+model =  UnetLyraDNAForCausalLM(config)
 p_count(model)
 
 
 training_args = TrainingArguments(
-    output_dir="/pf9550-bdp-A800/zhengyulong/lyradna/NCBIVirus0.1_Pretrain",
+    output_dir="/pf9550-bdp-A800/zhengyulong/unetlyradna/BVBRC_Pretrain_1e-3",
     evaluation_strategy="steps",
     gradient_checkpointing=False,
     eval_steps=500,
     save_steps=500,
     save_total_limit=10,
-    learning_rate=1e-4,
+    learning_rate=1e-3,
     lr_scheduler_type="cosine",
     warmup_ratio=0.1,
     weight_decay=0.1,
-    num_train_epochs=10,
+    num_train_epochs=20,
     gradient_accumulation_steps=1,
     per_device_train_batch_size=128,
     per_device_eval_batch_size=128,

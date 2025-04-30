@@ -1,0 +1,7 @@
+setup.py
+s4d_cuda.egg-info/PKG-INFO
+s4d_cuda.egg-info/SOURCES.txt
+s4d_cuda.egg-info/dependency_links.txt
+s4d_cuda.egg-info/top_level.txt
+src/s4dkernel_kernel.cu
+src/s4dkernel_wrapper.cpp

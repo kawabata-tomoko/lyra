@@ -8,7 +8,7 @@ from transformers import (AutoConfig, AutoTokenizer,
                           Trainer, TrainingArguments)
 import wandb
 import os
-# os.environ['CUDA_VISIBLE_DEVICES'] = '1,2,3,4,5,6,7'
+os.environ['CUDA_VISIBLE_DEVICES'] = '0,1,2,3,4,5,6,7'
 import numpy as np
 import torch
 from sklearn.metrics import precision_recall_fscore_support
@@ -67,14 +67,16 @@ testset=load_from_disk( f"{dataset_path}/testset")
 datacollator = DefaultDataCollator()
      
 config = AutoConfig.from_pretrained(
-    model_path,
+    # model_path,
+    "/pf9550-bdp-A800/zhengyulong/lyradna/BVBRC_Pretrain_1e-3/checkpoint-4500",
     trust_remote_code=True,
     num_labels=12,
-    classfier_depth=2,
-    depths=8
+    # classfier_depth=2,
+    # depths=8
 )
 model =  LyraDNAForSequenceClassification.from_pretrained(
-    "/pf9550-bdp-A800/zhengyulong/lyradna/NCBIVirus0.1_Pretrain/checkpoint-6620",
+    # "/pf9550-bdp-A800/zhengyulong/lyradna/NCBIVirus0.1_Pretrain/checkpoint-6620",
+    "/pf9550-bdp-A800/zhengyulong/lyradna/BVBRC_Pretrain_1e-3/checkpoint-4500",
     trust_remote_code=True,
     config=config,
     ignore_mismatched_sizes=True
@@ -83,21 +85,21 @@ p_count(model)
 
 
 training_args = TrainingArguments(
-    output_dir="/pf9550-bdp-A800/zhengyulong/lyradna/seqcls_hcov12_1e-3e25",
+    output_dir="/pf9550-bdp-A800/zhengyulong/lyradna/seqcls_hcov12_1e-4e25_BVBRC",
     evaluation_strategy="steps",
     gradient_checkpointing=False,
     eval_steps=50,
     save_steps=50,
     save_total_limit=10,
-    learning_rate=1e-3,
+    learning_rate=1e-4,
     lr_scheduler_type="cosine",
     warmup_ratio=0.1,
     weight_decay=0.1,
     num_train_epochs=25,
     # eval_accumulation_steps=8,
-    gradient_accumulation_steps=2,
-    per_device_train_batch_size=1,
-    per_device_eval_batch_size=1,
+    gradient_accumulation_steps=4,
+    per_device_train_batch_size=8,
+    per_device_eval_batch_size=8,
     neftune_noise_alpha=5.0,
     max_grad_norm=5,
     bf16=False,

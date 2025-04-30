@@ -33,33 +33,33 @@ def p_count(m):
 model_path = "./HyenaBase"
 tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
 
-from itertools import product
-import numpy as np
+# from itertools import product
+# import numpy as np
 
-code = []
-for i in product(
-    ["A", "T", "C", "G"],
-    ["A", "T", "C", "G"],
-    ["A", "T", "C", "G"],
-    ["A", "T", "C", "G"],
-    ["A", "T", "C", "G"],
-    ["A", "T", "C", "G"],
-):
-    code.append("".join(i))
-np.random.seed(42)
-np.random.shuffle(code)
+# code = []
+# for i in product(
+#     ["A", "T", "C", "G"],
+#     ["A", "T", "C", "G"],
+#     ["A", "T", "C", "G"],
+#     ["A", "T", "C", "G"],
+#     ["A", "T", "C", "G"],
+#     ["A", "T", "C", "G"],
+# ):
+#     code.append("".join(i))
+# np.random.seed(42)
+# np.random.shuffle(code)
 
-def translabelcode(labels,code_list,MAX_ELEMENT=5):
-    result=[]
-    for start in range(labels):
-        # 切片操作：start::5 表示从start开始，每隔5个元素取一次
-        sublist = code_list[start::labels]
-        np.random.seed(42)
-        np.random.shuffle(sublist)
-        result.append("".join(sublist[:MAX_ELEMENT]))
-    return result
-label_1 = translabelcode(5,code,MAX_ELEMENT=5)
-label_2 = translabelcode(12,code,MAX_ELEMENT=5)
+# def translabelcode(labels,code_list,MAX_ELEMENT=5):
+#     result=[]
+#     for start in range(labels):
+#         # 切片操作：start::5 表示从start开始，每隔5个元素取一次
+#         sublist = code_list[start::labels]
+#         np.random.seed(42)
+#         np.random.shuffle(sublist)
+#         result.append("".join(sublist[:MAX_ELEMENT]))
+#     return result
+# label_1 = translabelcode(5,code,MAX_ELEMENT=5)
+# label_2 = translabelcode(12,code,MAX_ELEMENT=5)
 
 def pack(
     _tokenizer,

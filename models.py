@@ -11,6 +11,115 @@ from transformers.modeling_outputs import (BaseModelOutputWithNoAttention,
                                            )
 
 # 新增RMSNorm实现
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+from transformers.modeling_outputs import (BaseModelOutputWithNoAttention,
+                                           CausalLMOutput,
+                                           SequenceClassifierOutput)
+
+class UNetEncoderBlock(nn.Module):
+    def __init__(self, in_channels, out_channels):
+        super().__init__()
+        self.conv = nn.Sequential(
+            nn.Conv1d(in_channels, out_channels, kernel_size=3, padding=1),
+            nn.BatchNorm1d(out_channels),
+            nn.ReLU(),
+            nn.Conv1d(out_channels, out_channels, kernel_size=3, padding=1),
+            nn.BatchNorm1d(out_channels),
+            nn.ReLU()
+        )
+        self.pool = nn.MaxPool1d(2, stride=2)
+
+    def forward(self, x):
+        x = self.conv(x)
+        skip = x  # 保留特征用于跳跃连接
+        x = self.pool(x)
+        return x, skip
+
+class UNetDecoderBlock(nn.Module):
+    def __init__(self, in_channels, out_channels, skip_channels):
+        super().__init__()
+        self.up = nn.ConvTranspose1d(in_channels, out_channels, kernel_size=2, stride=2)
+        self.conv_skip = nn.Conv1d(skip_channels, out_channels, kernel_size=1)  # 调整跳跃连接的通道数
+        self.conv = nn.Sequential(
+            nn.Conv1d(2 * out_channels, out_channels, kernel_size=3, padding=1),
+            nn.BatchNorm1d(out_channels),
+            nn.ReLU(),
+            nn.Conv1d(out_channels, out_channels, kernel_size=3, padding=1),
+            nn.BatchNorm1d(out_channels),
+            nn.ReLU()
+        )
+
+    def forward(self, x, skip):
+        x = self.up(x)
+        skip = self.conv_skip(skip)  # 调整通道数
+        x = torch.cat([x, skip], dim=1)  # 按通道拼接
+        return self.conv(x)
+
+class UNetForSequenceClassification(nn.Module):
+    supports_gradient_checkpointing = True
+    def __init__(self, input_dim, num_classes, vocab_size, padding_idx):
+        super().__init__()
+        self.num_classes=num_classes
+        self.embedding = nn.Embedding(vocab_size, input_dim, padding_idx=padding_idx)
+        # 编码器
+        self.enc1 = UNetEncoderBlock(input_dim, input_dim * 2)
+        self.enc2 = UNetEncoderBlock(input_dim * 2, input_dim * 3)
+        self.enc3 = UNetEncoderBlock(input_dim * 3, input_dim * 4)
+        
+        # 解码器
+        self.dec3 = UNetDecoderBlock(input_dim * 4, input_dim * 3, skip_channels=input_dim * 4)
+        self.dec2 = UNetDecoderBlock(input_dim * 3, input_dim * 2, skip_channels=input_dim * 3)
+        self.dec1 = UNetDecoderBlock(input_dim * 2, input_dim , skip_channels=input_dim * 2)
+        # 分类头
+        self.gap = nn.AdaptiveAvgPool1d(1)
+        self.hidden = torch.nn.Linear(input_dim,input_dim*2)#.to(torch.bfloat16)
+        self.classifier = torch.nn.Linear(input_dim*2,num_classes)#.to(torch.bfloat16)#load as bf16
+        self.ln_hidden = torch.nn.LayerNorm(input_dim*2)
+     
+    def get_input_embeddings(self):
+        return self.embedding
+
+    def set_input_embeddings(self, value):
+        self.embedding = value   
+    def forward(
+        self,
+        input_ids = None,
+        inputs_embeds = None,
+        labels = None,
+        output_hidden_states= None,
+        return_dict = None,
+    ):
+       
+        x = self.embedding(input_ids).transpose(-1, -2) if inputs_embeds is None else inputs_embeds # [B, C, L]
+        # 编码
+        x, skip1 = self.enc1(x)
+        x, skip2 = self.enc2(x)
+        x, skip3 = self.enc3(x)  # 保存所有跳跃连接
+        # 解码
+        x = self.dec3(x, skip3)
+        x = self.dec2(x, skip2)
+        x = self.dec1(x, skip1)
+        
+        # 分类
+        x = self.gap(x).squeeze(-1)
+        logits = self.classifier(self.ln_hidden(F.gelu(self.hidden(x))))
+        
+        loss = None
+        if labels is not None:
+            labels = labels.to(logits.device)
+            loss_fct = nn.CrossEntropyLoss()
+            loss = loss_fct(
+                logits.view(-1, self.num_classes), labels.view(-1)
+            )
+
+        return SequenceClassifierOutput(
+            loss=loss,
+            logits=logits,
+            hidden_states=x,
+        )
+
 class RMSNorm(nn.Module):
     def __init__(self, dim: int, eps: float = 1e-6):
         super().__init__()
@@ -348,12 +457,6 @@ class LyraDNAForSequenceClassification(HyenaDNAPreTrainedModel):
         super().__init__(config, **kwargs)
         self.num_labels = kwargs.get("num_labels", config.num_labels)
         self.lyra = LyraDNAModel(config)
-        # self.score = nn.Sequential(
-        #         nn.Linear(config.d_model, 2*config.d_model),
-        #         nn.LayerNorm(2*config.d_model),
-        #         nn.ReLU(),
-        #         nn.Linear(2*config.d_model, self.num_labels)
-        # )
         self.score = nn.Linear(config.d_model, self.num_labels, bias=False)
 
         # Initialize weights and apply final processing
